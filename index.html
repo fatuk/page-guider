@@ -32,6 +32,18 @@
 		<h2 id="someBlock">Some block</h2>
 	</div>
 
+	<script type="text/mustache" id="guiderMessageTemplate">
+		{{#left}}
+			<div class="message message_left">
+		{{/left}}
+
+		{{#right}}
+			<div class="message message_right">
+		{{/right}}
+			{{text}} - {{position}}
+		</div>
+	</script>
+
 	<script src="bower_components/jquery/dist/jquery.js"></script>
 	<script src="bower_components/underscore/underscore.js"></script>
 	<script src="bower_components/mustache/mustache.js"></script>

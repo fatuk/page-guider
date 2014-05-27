@@ -3,6 +3,11 @@ $(function() {
     window.App.Views = {};
     window.App.Models = {};
     window.App.Collections = {};
+    window.App.Helpers = {};
+
+    App.Helpers.Template = function(templateId) {
+        return $('#' + templateId).html();
+    };
 
     App.Collections.Steps = Backbone.Collection.extend({
         url: 'data/guide.json',
@@ -56,10 +61,20 @@ $(function() {
         render: function() {
             this.highlightArea();
         },
+        messageTemplate: App.Helpers.Template('guiderMessageTemplate'),
         highlightArea: function() {
             _.each(this.model.get('areas'), function(area) {
-                $('#' + area.id).addClass('highlight-area');
-            });
+                var $currentArea = $('#' + area.id);
+                $currentArea.addClass('highlight-area');
+
+                if (area.messages) {
+                    _.each(area.messages, function(message) {
+                        var rendered = Mustache.render(this.messageTemplate, message);
+                        $currentArea.append(rendered);
+                    }, this);
+                }
+
+            }, this);
         },
         resetArea: function() {
             _.each(this.model.get('areas'), function(area) {
@@ -68,8 +83,16 @@ $(function() {
         }
     });
 
-    App.Views.Steps = Backbone.View.extend({
+    App.Views.Message = Backbone.View.extend({
+        template: App.Helpers.Template('guiderMessageTemplate'),
+        initialize: function() {
 
+        },
+        render: function(message) {
+            var rendered = Mustache.render(this.template, message);
+        }
     });
+
+    var messageView = new App.Views.Message();
 
 });

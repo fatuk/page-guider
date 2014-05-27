@@ -1,21 +1,21 @@
 [{
     "areas": [{
-        "id": "title"
-    }, {
-        "id": "form",
-        "message": [{
-            "text": "Купленные экскурсии принимают статус оплаченых",
-            "position": "right"
-        }]
-    }, {
-        "id": "someBlock",
-        "message": [{
+        "id": "title",
+        "messages": [{
             "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt, voluptatum.",
-            "position": "left"
+            "left": true
         }, {
             "text": "Lorem ipsum dolor sit amet.",
-            "position": "right"
+            "right": true
         }]
+    }, {
+        "id": "form",
+        "messages": [{
+            "text": "Купленные экскурсии принимают статус оплаченых",
+            "left": true
+        }]
+    }, {
+        "id": "someBlock"
     }],
     "nextBtn": {
         "title": "Я все понял. Дальше",

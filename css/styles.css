@@ -25,3 +25,19 @@
     background: #fff;
     z-index: 1000;
 }
+
+.message {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    width: 300px;
+    color: #fff;
+}
+
+.message_left {
+    left: -300px;
+}
+
+.message_right {
+    right: -300px;
+}
