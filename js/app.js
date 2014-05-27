@@ -52,6 +52,7 @@ $(function() {
 
 
     App.Views.Step = Backbone.View.extend({
+        messageTemplate: App.Helpers.Template('guiderMessageTemplate'),
         initialize: function() {
             this.render();
             App.appView.on('removeOverlay', function() {
@@ -61,12 +62,12 @@ $(function() {
         render: function() {
             this.highlightArea();
         },
-        messageTemplate: App.Helpers.Template('guiderMessageTemplate'),
         highlightArea: function() {
             _.each(this.model.get('areas'), function(area) {
                 var $currentArea = $('#' + area.id);
                 $currentArea.addClass('highlight-area');
 
+                // Resner messages
                 if (area.messages) {
                     _.each(area.messages, function(message) {
                         var rendered = Mustache.render(this.messageTemplate, message);
