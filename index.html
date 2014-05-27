@@ -7,12 +7,13 @@
 </head>
 <body>
 	<div id="app">
+		<button id="guiderBtn" class="guider-btn">Run guider</button>
 		<div class="form">
 			<form action="#">
 				<header class="form__header">
-					<h2 class="form__title">Some form</h2>
+					<h2 class="form__title" id="title">Some form</h2>
 				</header>
-				<div class="form__content">
+				<div class="form__content" id="form">
 					<div class="form__row">
 						<label class="label">Input 1</label>
 						<input type="text" class="input">
@@ -28,6 +29,13 @@
 				</div>
 			</form>
 		</div>
+		<h2 id="someBlock">Some block</h2>
 	</div>
+
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/underscore/underscore.js"></script>
+	<script src="bower_components/mustache/mustache.js"></script>
+	<script src="bower_components/backbone/backbone.js"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
