@@ -26,6 +26,11 @@
     z-index: 1000;
 }
 
+.background {
+    position: absolute;
+    background: red;
+}
+
 .message {
     position: absolute;
     top: 0;

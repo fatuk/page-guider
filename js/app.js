@@ -67,7 +67,16 @@ $(function() {
                 var $currentArea = $('#' + area.id);
                 $currentArea.addClass('highlight-area');
 
-                // Resner messages
+                var backgroundWidth = $currentArea.width(),
+                    backgroundHeight = $currentArea.height(),
+                    backgroundOffset = $currentArea.offset();
+
+                App.appView.$el.append('<div class="background">');
+                App.appView.$('.background').width(backgroundWidth).height(backgroundHeight).offset(backgroundOffset);
+
+                console.log(App.appView.$('.background'));
+
+                // Render messages
                 if (area.messages) {
                     _.each(area.messages, function(message) {
                         var rendered = Mustache.render(this.messageTemplate, message);
